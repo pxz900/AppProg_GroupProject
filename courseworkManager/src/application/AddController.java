@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,17 +10,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.THAppModel;
 
 public class AddController {
 ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz", "Homework", "Project", "Other");
 	
 	@FXML
-	private ChoiceBox<String> workTypes;
+	private TextField workTypes;
 	
 	@FXML
 	private TextField courseNum;
@@ -30,19 +33,10 @@ ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz",
 	@FXML
 	private DatePicker dueDate;
 	
-	
-	@FXML
-	private void initialize() {
-		
-		workTypes.setValue("Test");
-		
-		workTypes.setItems(types);
-		
-	}
-	
 	@FXML
 	private AnchorPane mainPane;
 	
+	//handles home button in the add scene
 	@FXML
 	public void handleMain(ActionEvent event) throws IOException{
 		mainPane = FXMLLoader.load(getClass().getResource("Menu.fxml"));
@@ -50,5 +44,32 @@ ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz",
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(scene);
 		window.show();
+	}
+	
+	//add controls add button in the add scene
+	@FXML
+	public void operateAdd(ActionEvent event) throws IOException{
+		//THAppModel model;
+		
+		int num = Integer.parseInt(courseNum.getText().toString());
+    	String name = courseName.getText().toString();
+    	String type = workTypes.getText().toString();
+    	LocalDate due = dueDate.getValue();
+    	
+    	THAppModel.addWork(num, name, type, due);
+    	
+    	Alert add = new Alert(AlertType.NONE);
+		//set alert type
+		add.setAlertType(AlertType.CONFIRMATION);
+		//sets dialogue
+		add.setContentText("Successfully added course work to inventory!");
+		//show dialogue
+		add.show();
+    	
+    	//clears textfields and dueDate
+    	courseNum.clear();
+    	courseName.clear();
+    	workTypes.clear();
+    	dueDate.setValue(null);
 	}
 }

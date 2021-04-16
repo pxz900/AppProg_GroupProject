@@ -41,4 +41,9 @@ public class Coursework {
 	public void setDueDate(LocalDate date) {
 		this.dueDate = date;
 	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(this.courseNum) + "," + this.courseName + "," + this.workType + "," + this.dueDate;
+	}
 }
