@@ -34,6 +34,14 @@ public class MainController {
 		window.setScene(scene);
 		window.show();
 	}
+
+	public void handleView(MouseEvent event) throws IOException{
+		mainPane = FXMLLoader.load(getClass().getResource("View.fxml"));
+		Scene scene = new Scene(mainPane);
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+	}
 	
 	
 }

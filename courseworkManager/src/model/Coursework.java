@@ -55,4 +55,17 @@ public class Coursework {
 	public String toString() {
 		return String.valueOf(this.courseNum) + "," + this.courseName + "," + this.workType + "," + this.dueDate + "," + this.gradeNum;
 	}
+
+	public void fromString(String input) {
+		if (!input.isEmpty()) {
+			String[] split = input.split(",");
+			this.courseNum = Integer.parseInt(split[0]);
+			this.courseName = split[1];
+			this.workType = split[2];
+			this.dueDate = LocalDate.parse(split[3]);
+			this.gradeNum = split[4];
+		} else {
+			System.out.println("No data on line");
+		}
+	}
 }
