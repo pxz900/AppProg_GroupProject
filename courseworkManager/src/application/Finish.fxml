@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinishController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2e3e4" height="95.0" layoutX="-8.0" layoutY="-6.0" stroke="#f0f0f000" strokeType="INSIDE" width="616.0" />
+      <Label layoutX="178.0" layoutY="22.0" text="Finish Coursework" textAlignment="CENTER">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="text_courseNum" layoutX="21.0" layoutY="176.0" prefHeight="24.0" prefWidth="200.0" promptText="Please use similar format: CS-####">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </TextField>
+      <MenuButton layoutX="489.0" layoutY="61.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="100.0" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TextArea fx:id="textArea_output" layoutX="323.0" layoutY="169.0" prefHeight="101.0" prefWidth="200.0" />
+      <Separator layoutX="297.0" layoutY="118.0" orientation="VERTICAL" prefHeight="264.0" prefWidth="7.0" />
+      <Separator layoutX="298.0" layoutY="-101.0" orientation="VERTICAL" prefHeight="476.0" prefWidth="0.0" rotate="90.0" />
+      <Text layoutX="323.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculated GPA:" />
+      <TextArea fx:id="textArea_GPA" layoutX="416.0" layoutY="293.0" prefHeight="25.0" prefWidth="120.0" />
+      <Text layoutX="21.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Coursework Number:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <ProgressIndicator layoutX="539.0" layoutY="294.0" prefHeight="39.0" prefWidth="30.0" progress="0.0" />
+      <Text fx:id="AlertA_B" fill="RED" layoutX="21.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The coursework number submitted could not be found. Please make sure you entered the correct number." visible="false" wrappingWidth="280.966796875">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text fx:id="AlertA_A" fill="GREEN" layoutX="21.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The coursework number submitted was found!" visible="false" wrappingWidth="280.966796875">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text layoutX="323.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Button fx:id="homeBtn" layoutX="528.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#handleMain" text="Home" />
+      <Text layoutX="21.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter grade for assignment you wish to remove:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_courseGrade" layoutX="21.0" layoutY="293.0" prefHeight="24.0" prefWidth="200.0" promptText="Please only enter numbers 0-100">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </TextField>
+      <Button fx:id="submitBtn" layoutX="232.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#submitCourse" prefHeight="25.0" prefWidth="62.0" text="Submit" />
+      <Text fx:id="AlertB_B" fill="RED" layoutX="21.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The grade you entered was not added. Please use proper grade denotion" visible="false" wrappingWidth="253.1875">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text fx:id="AlertB_A" fill="GREEN" layoutX="21.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The grade you entered was added." visible="false" wrappingWidth="280.966796875">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_type" layoutX="21.0" layoutY="231.0" prefHeight="24.0" prefWidth="269.0" promptText="Please use similar format: Homework, Quiz, Group Project etc..">
+         <font>
+            <Font name="Arial" size="9.0" />
+         </font>
+      </TextField>
+      <Text layoutX="21.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Assignment Type:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

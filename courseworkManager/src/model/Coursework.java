@@ -8,6 +8,7 @@ public class Coursework {
 	private String courseName;
 	private String workType;
 	private LocalDate dueDate;
+	private String gradeNum;
 	
 	public int getCourseNum() {
 		return this.courseNum;
@@ -23,6 +24,10 @@ public class Coursework {
 	
 	public LocalDate getDueDate() {
 		return this.dueDate;
+	}
+	
+	public String getGradeNum() {
+		return this.gradeNum;
 	}
 	
 	public void setCourseNum(int num) {
@@ -42,8 +47,12 @@ public class Coursework {
 		this.dueDate = date;
 	}
 	
+	public void setGradeNum(String gradeNum) {
+		this.gradeNum = gradeNum;
+	}
+	
 	@Override
 	public String toString() {
-		return String.valueOf(this.courseNum) + "," + this.courseName + "," + this.workType + "," + this.dueDate;
+		return String.valueOf(this.courseNum) + "," + this.courseName + "," + this.workType + "," + this.dueDate + "," + this.gradeNum;
 	}
 }
