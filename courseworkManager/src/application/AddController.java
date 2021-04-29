@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.THAppModel;
+import model.CMAppModel;
 
 /* This class is the controller for the add scene
  */
@@ -54,22 +54,50 @@ ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz",
 	 */
 	@FXML
 	public void operateAdd(ActionEvent event) throws IOException{
-		//THAppModel model;
-		
-		int num = Integer.parseInt(courseNum.getText().toString());
+		// the alert
+    	Alert a = new Alert(AlertType.NONE);
+    	
+		// checks the course number is in the correct format
+    	int num;
+		try {
+			num = Integer.parseInt(courseNum.getText().toString());			
+		} catch (NumberFormatException e) {
+			a.setAlertType(AlertType.ERROR);
+			a.setContentText("Please enter a valid course number");
+			a.show();
+			return;
+		}
+    	
+    	// checks the due date is valid
+    	LocalDate due = dueDate.getValue();
+    	if (due == null) {
+			a.setAlertType(AlertType.ERROR);
+			a.setContentText("Please enter a valid date");
+			a.show();
+			return;
+    	}
+    	
+    	// text fields
     	String name = courseName.getText().toString();
     	String type = workTypes.getText().toString();
-    	LocalDate due = dueDate.getValue();
     	
-    	THAppModel.addWork(num, name, type, due);
+		// checks that all fields were filled out
+		if (name == "" || type == "") {
+			a.setAlertType(AlertType.ERROR);
+			a.setContentText("Please fill out all fields to make a request. Thank you!");
+			a.show();
+			return;
+		}
     	
-    	Alert add = new Alert(AlertType.NONE);
+    	// adds the work
+    	CMAppModel.addWork(num, name, type, due);
+    	
 		//set alert type
-		add.setAlertType(AlertType.CONFIRMATION);
+		a.setAlertType(AlertType.CONFIRMATION);
 		//sets dialogue
-		add.setContentText("Successfully added course work to inventory!");
+		a.setContentText("Successfully added course work to inventory!");
 		//show dialogue
-		add.show();
+		a.show();
     	
     	//clears textfields and dueDate
     	courseNum.clear();

@@ -1,8 +1,5 @@
 package application;
 
-import javafx.beans.InvalidationListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,23 +10,24 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Coursework;
-import model.THAppModel;
+import model.CMAppModel;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
-public class ViewController {
+
+/* This class is for the outstanding view where you can view uncompleted coursework
+ */
+public class ViewOutstandingController {
 
     @FXML
     private AnchorPane mainPane;
 
     @FXML
-    private TableView courseworkTable;
-
+    private TableView<Coursework> courseworkTable;
+   
+    /* Loads the menu FXML file and updates the scene
+     * Takes event to set the scene from the button press
+     */
     @FXML
     public void handleHome(MouseEvent event) throws IOException {
         mainPane = FXMLLoader.load(getClass().getResource("Menu.fxml"));
@@ -39,16 +37,18 @@ public class ViewController {
         window.show();
     }
 
+    /* Builtin method that populates the table view with the outstanding courses
+     */
     @FXML
     public void initialize(){
-        System.out.println("Test");
-        Coursework test = new Coursework();
-        test.setCourseNum(123);
-        test.setCourseName("Test");
-        test.setWorkType("Quiz");
-        test.setDueDate(LocalDate.now());
-        test.setGradeNum("A");
-        ObservableList<Coursework> courses = THAppModel.getCoursesObservableList();
+    	ObservableList<Coursework> courses;
+        try {
+        	courses = CMAppModel.getOutstandingObservableList();
+        } catch (IOException e) {
+            courses = null;
+        }
+
+        // sets the data
         courseworkTable.setItems(courses);
     }
 }

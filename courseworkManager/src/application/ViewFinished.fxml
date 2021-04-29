@@ -9,33 +9,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewFinishedController">
     <children>
-        <TableView fx:id="courseworkTable" layoutX="14.0" layoutY="107.0" opacity="0.85" prefHeight="279.0" prefWidth="572.0">
+        <TableView fx:id="courseworkTable" layoutX="5.0" layoutY="95.0" opacity="0.85" prefHeight="282.0" prefWidth="589.0">
             <columns>
-                <TableColumn prefWidth="81.0" text="Course Num">
+                <TableColumn prefWidth="105.0" text="Course Num">
                     <cellValueFactory>
                         <PropertyValueFactory property="courseNum" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="287.0" text="Title (Coursework Name)">
+                <TableColumn prefWidth="208.0" text="Title (Coursework Name)">
                     <cellValueFactory>
                         <PropertyValueFactory property="courseName" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="98.0" text="Work Type">
+                <TableColumn prefWidth="105.0" text="Work Type">
                     <cellValueFactory>
                         <PropertyValueFactory property="workType" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="5.0" prefWidth="103.0" text="Due Date">
+                <TableColumn minWidth="5.0" prefWidth="93.0" text="Date">
                     <cellValueFactory>
                         <PropertyValueFactory property="dueDate" />
                     </cellValueFactory>
                 </TableColumn>
+                <TableColumn minWidth="5.0" prefWidth="75.0" text="Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="gradeNum" />
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
-        <Label layoutX="164.0" layoutY="36.0" styleClass="header-text" stylesheets="@application.css" text="Coursework List">
+        <Label layoutX="14.0" layoutY="36.0" styleClass="header-text" stylesheets="@application.css" text="Completed Coursework List">
             <font>
                 <Font size="30.0" />
             </font>

@@ -43,16 +43,25 @@ public class MainController {
 		window.show();
 	}
 
-    /* Loads the view FXML file and updates the scene
+    /* Loads the view outstanding courses FXML file and updates the scene
      * Takes event to set the scene from the button press
      */
-	public void handleView(MouseEvent event) throws IOException{
-		mainPane = FXMLLoader.load(getClass().getResource("View.fxml"));
+	public void handleViewOutstanding(MouseEvent event) throws IOException{
+		mainPane = FXMLLoader.load(getClass().getResource("ViewOutstanding.fxml"));
 		Scene scene = new Scene(mainPane);
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(scene);
 		window.show();
 	}
-	
-	
+
+    /* Loads the view finished courses FXML file and updates the scene
+     * Takes event to set the scene from the button press
+     */
+	public void handleViewFinished(MouseEvent event) throws IOException{
+		mainPane = FXMLLoader.load(getClass().getResource("ViewFinished.fxml"));
+		Scene scene = new Scene(mainPane);
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+	}
 }
