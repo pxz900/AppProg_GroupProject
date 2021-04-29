@@ -2,7 +2,9 @@
 
 # Authors
 Group 15 
+
 This branch was created by Finn Burmeister-Morton
+
 Original project by Zachary True, Jonathan Trevino, Irene Pham
 
 # What it is
