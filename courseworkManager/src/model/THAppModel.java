@@ -73,7 +73,7 @@ public class THAppModel {
 
         // Creating writer for coursesFinished.txt
 
-        FileWriter myWriter = new FileWriter(output, true);
+        FileWriter myWriter = new FileWriter(output);
 
         // Try/catch statement to try to find the course the user entered to then remove from the file
 
