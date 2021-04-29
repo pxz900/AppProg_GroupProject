@@ -18,6 +18,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.THAppModel;
 
+/* This class is the controller for the add scene
+ */
 public class AddController {
 ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz", "Homework", "Project", "Other");
 	
@@ -36,7 +38,9 @@ ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz",
 	@FXML
 	private AnchorPane mainPane;
 	
-	//handles home button in the add scene
+    /* Loads the menu FXML file and updates the scene
+     * Takes event to set the scene from the button press
+     */
 	@FXML
 	public void handleMain(ActionEvent event) throws IOException{
 		mainPane = FXMLLoader.load(getClass().getResource("Menu.fxml"));
@@ -46,7 +50,8 @@ ObservableList<String> types = FXCollections.observableArrayList("Test", "Quiz",
 		window.show();
 	}
 	
-	//add controls add button in the add scene
+	/* Control function that fetches user input and adds course work 
+	 */
 	@FXML
 	public void operateAdd(ActionEvent event) throws IOException{
 		//THAppModel model;

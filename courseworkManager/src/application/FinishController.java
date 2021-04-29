@@ -19,6 +19,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 
 
+/* This class is the main controller for the finish scene
+ */
 public class FinishController {
 
 	private AnchorPane mainPane;
@@ -58,6 +60,9 @@ public class FinishController {
     @FXML
     private Text AlertB_B;
     
+    /* Loads the menu FXML file and updates the scene
+     * Takes event to set the scene from the button press
+     */
 	public void handleMain(MouseEvent event) throws IOException {
 		mainPane = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		Scene scene = new Scene(mainPane);
@@ -66,6 +71,9 @@ public class FinishController {
 		window.show();
 	}
 	
+	/* Control function that fetches user input and completes course work
+     * Will show alert confirmation on success
+	 */
 	public void submitCourse(MouseEvent event) throws IOException {
 		AlertA_A.setVisible(false);
 		AlertA_B.setVisible(false);
@@ -75,7 +83,7 @@ public class FinishController {
 		int cNum = Integer.parseInt(text_courseNum.getText().toString());
 		String cType = text_type.getText();
 		String cGrade = text_courseGrade.getText();
-		String numBoundary = "^(100|[1-9]?[0-9])$";
+		// String numBoundary = "^(100|[1-9]?[0-9])$";
 		
 		
 		THAppModel.finishWork(cNum, cType, cGrade);

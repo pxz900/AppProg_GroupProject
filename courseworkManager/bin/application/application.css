@@ -1,1 +1,37 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* if we decide to add image buttons
+.button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: #b0dfff;
+    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 1em;
+    -fx-text-fill: #828282;
+}
+*/
+
+/* if we decide to add image buttons
+.button:focused {
+    -fx-border-color: transparent, black;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 2);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+*/
+
+/*  if we decide to add image buttons
+.button:pressed {
+    -fx-background-color: #0098ff;
+    -fx-text-fill: white;
+}
+*/
+
+.header-text{
+	-fx-font-weight: bold
+}
+
+.bodybg{
+ -fx-background-image: url('image/body.png');
+ -fx-background-size: 100% 100%;
+}

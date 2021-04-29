@@ -23,6 +23,19 @@ import javafx.scene.shape.Path;
 
 public class THAppModel {
 
+    public static int alreadyRan = 0;
+    public static int lineNum = 0;
+    public static int totalLineCount = 0;
+    static ArrayList<String> entry = new ArrayList<String>();
+    static ArrayList<String> finished = new ArrayList<String>();
+    
+    /* Function that adds work to be done to the database file
+     * Parameters:
+     *   courseNum should be the ID of the course
+     *   courseName should be the course's name
+     *   workType should be what category the work belongs in (for example, Quiz)
+     *   dueDate should be when the assignment should be completed by
+     */
     public static void addWork(int courseNum, String courseName, String workType, LocalDate dueDate) throws IOException {
 
         //'Coursework' object 'cw' created
@@ -46,13 +59,12 @@ public class THAppModel {
         bWriter.close();
     }
 
-    public static int alreadyRan = 0;
-    public static int lineNum = 0;
-    public static int totalLineCount = 0;
-    static ArrayList<String> entry = new ArrayList<String>();
-    static ArrayList<String> finished = new ArrayList<String>();
-
-
+    /* Function that finishes work in the database file
+     * Parameters:
+     *   courseNum should be the ID of the course
+     *   workType should be what category the work belongs in (for example, Quiz)
+     *   gradeNum should be how well you scored on this assignment (can vary by grading system)
+     */
     public static void finishWork(int courseNum, String workType, String gradeNum) throws IOException {
 
         // Turn courseNum int into String
@@ -73,7 +85,7 @@ public class THAppModel {
 
         // Creating writer for coursesFinished.txt
 
-        FileWriter myWriter = new FileWriter(output);
+        FileWriter myWriter = new FileWriter(output, true);
 
         // Try/catch statement to try to find the course the user entered to then remove from the file
 
@@ -134,6 +146,9 @@ public class THAppModel {
         entry.clear();
     }
 
+    /* Function that reads the courses file and loads the list of course work
+     * Returns: the list of courses inside the file
+     */
 	public static ObservableList<Coursework> getCoursesObservableList() {
         File file = new File("courseList.txt");
         ObservableList<Coursework> courses = FXCollections.observableArrayList();

@@ -10,6 +10,8 @@ public class Coursework {
 	private LocalDate dueDate;
 	private String gradeNum;
 	
+	// getters
+	
 	public int getCourseNum() {
 		return this.courseNum;
 	}
@@ -30,6 +32,8 @@ public class Coursework {
 		return this.gradeNum;
 	}
 	
+	// setters
+
 	public void setCourseNum(int num) {
 		this.courseNum = num;
 	}
@@ -51,11 +55,18 @@ public class Coursework {
 		this.gradeNum = gradeNum;
 	}
 	
+	/* Function used to export course work to a file or other storage format
+	 * Returns: a syntactically valid coursework string
+	 */
 	@Override
 	public String toString() {
 		return String.valueOf(this.courseNum) + "," + this.courseName + "," + this.workType + "," + this.dueDate + "," + this.gradeNum;
 	}
 
+	/* Function to load course work from a string (usually found inside a file)
+	 * Parameters:
+	 *   input should be a syntactically valid courseWork item
+	 */
 	public void fromString(String input) {
 		if (!input.isEmpty()) {
 			String[] split = input.split(",");
@@ -63,7 +74,7 @@ public class Coursework {
 			this.courseName = split[1];
 			this.workType = split[2];
 			this.dueDate = LocalDate.parse(split[3]);
-			this.gradeNum = split[4];
+			// this.gradeNum = split[4];
 		} else {
 			System.out.println("No data on line");
 		}

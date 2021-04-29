@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddController">
    <children>
-      <Button fx:id="addCoursework" layoutX="471.0" layoutY="319.0" mnemonicParsing="false" onAction="#operateAdd" text="Add Coursework" />
+      <Button fx:id="addCoursework" layoutX="240.0" layoutY="350.0" mnemonicParsing="false" onAction="#operateAdd" text="Add Coursework" />
       <DatePicker fx:id="dueDate" layoutX="203.0" layoutY="307.0" promptText="4/29/21" />
-      <Label layoutX="202.0" layoutY="30.0" text="Add Coursework">
+      <Label layoutX="191.0" layoutY="32.0" styleClass="header-text" stylesheets="@application.css" text="Add Coursework">
          <font>
             <Font size="24.0" />
          </font>
@@ -22,7 +22,7 @@
       <Label layoutX="248.0" layoutY="152.0" text="Course Name" />
       <TextField fx:id="courseNum" layoutX="209.0" layoutY="106.0" promptText="e.g. 3443" />
       <Label layoutX="241.0" layoutY="80.0" text="Course Number" />
-      <Button fx:id="MenuBtn" layoutX="37.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleMain" text="Menu" />
+      <Button fx:id="MenuBtn" layoutX="491.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleMain" text="Home" />
       <TextField fx:id="workTypes" layoutX="209.0" layoutY="238.0" promptText="e.g. Test, HW, Quiz, etc." />
    </children>
 </AnchorPane>
