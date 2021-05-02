@@ -6,7 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
+/* This class serves as the main launch point for the application and sets the main menu
+ */
 public class Main extends Application {
+	/* Builtin method to launch application
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -20,6 +24,8 @@ public class Main extends Application {
 		}
 	}
 	
+	/* Launches application to the main menu
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

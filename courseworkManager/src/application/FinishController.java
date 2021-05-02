@@ -12,13 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.THAppModel;
+import model.CMAppModel;
 import javafx.scene.Node;
-import javafx.scene.control.Alert.AlertType;
 
 
+/* This class is the main controller for the finish scene
+ */
 public class FinishController {
 
 	private AnchorPane mainPane;
@@ -27,37 +27,19 @@ public class FinishController {
     private Button submitBtn;
 
     @FXML
-    private TextArea textArea_output;
-
-    @FXML
-    private TextArea textArea_GPA;
-
-    @FXML
     private Button homeBtn;
 
     @FXML
     private TextField text_courseNum;
     
     @FXML
-    private TextField text_type;
-    
-    
-
-    @FXML
     private TextField text_courseGrade;
     
     @FXML
-    private Text AlertA_A;
     
-    @FXML
-    private Text AlertA_B;
-   
-    @FXML
-    private Text AlertB_A;
-	
-    @FXML
-    private Text AlertB_B;
-    
+    /* Loads the menu FXML file and updates the scene
+     * Takes event to set the scene from the button press
+     */
 	public void handleMain(MouseEvent event) throws IOException {
 		mainPane = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		Scene scene = new Scene(mainPane);
@@ -66,32 +48,47 @@ public class FinishController {
 		window.show();
 	}
 	
+	/* Control function that fetches user input and completes course work
+     * Will show alert confirmation on success
+	 */
 	public void submitCourse(MouseEvent event) throws IOException {
-		AlertA_A.setVisible(false);
-		AlertA_B.setVisible(false);
-		AlertB_A.setVisible(false);
-		AlertB_B.setVisible(false);
+		// the alert
+    	Alert a = new Alert(AlertType.NONE);
 		
-		int cNum = Integer.parseInt(text_courseNum.getText().toString());
-		String cType = text_type.getText();
-		String cGrade = text_courseGrade.getText();
-		String numBoundary = "^(100|[1-9]?[0-9])$";
+		// checks the course number is in the correct format
+    	int num;
+		try {
+			num = Integer.parseInt(text_courseNum.getText().toString());			
+		} catch (NumberFormatException e) {
+			a.setAlertType(AlertType.ERROR);
+			a.setContentText("Please enter a valid course number");
+			a.show();
+			return;
+		}
+
+		// text fields
+		String grade = text_courseGrade.getText();
 		
+		// checks that all fields were filled out
+		if (grade == "") {
+			a.setAlertType(AlertType.ERROR);
+			a.setContentText("Please fill out all fields to make a request. Thank you!");
+			a.show();
+			return;
+		}
 		
-		THAppModel.finishWork(cNum, cType, cGrade);
-			
+		// finishes course
+		String finishSuccess = CMAppModel.finishWork(num, grade);
 		
-		Alert add = new Alert(AlertType.NONE);
 		//set alert type
-		add.setAlertType(AlertType.CONFIRMATION);
+		a.setAlertType(AlertType.CONFIRMATION);
 		//sets dialogue
-		add.setContentText("Successfully finished course work submitted!");
+		a.setContentText(finishSuccess);
 		//show dialogue
-		add.show();
+		a.show();
 		
+		// clears user fields
 		text_courseNum.clear();
-		text_type.clear();
 		text_courseGrade.clear();
 	}
-	
 }
